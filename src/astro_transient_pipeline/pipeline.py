@@ -15,8 +15,19 @@ def simulate_alerts(count: int, seed: int = 0) -> list[dict]:
         rise_days = rng.uniform(1, 45)
         g = arnett_flux(rise_days - 18, nickel_mass=rng.uniform(0.25, 1.0)) * rng.uniform(3, 12)
         r = g * rng.uniform(0.7, 1.4)
-        classification = classify(max(g, r), rise_days, color_index(g, r))
-        alerts.append({"id": f"SIM{index:05d}", "classification": classification, "gw_overlap": rng.random()})
+        color = color_index(g, r)
+        classification = classify(max(g, r), rise_days, color)
+        alerts.append(
+            {
+                "id": f"SIM{index:05d}",
+                "rise_days": rise_days,
+                "flux_g": g,
+                "flux_r": r,
+                "color_g_minus_r": color,
+                "classification": classification,
+                "gw_overlap": rng.random(),
+            }
+        )
     return alerts
 
 
