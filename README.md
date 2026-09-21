@@ -21,6 +21,17 @@ pytest
 
 These values come from `python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7`. The demonstration exercises the full MVP sequence: simulated photometry, transparent classification, mock GW-overlap scoring, and follow-up ranking.
 
+## What is implemented today
+
+| Stage | MVP implementation | Next research integration |
+| --- | --- | --- |
+| Light curves | normalized Arnett-shaped flux proxy | radiative-transfer / kilonova grids |
+| Classification | four-rule transparent taxonomy | trained hierarchical Bayesian model |
+| Multi-messenger context | per-alert mock GW-overlap score | HEALPix FITS and neutrino localizations |
+| Scheduling | priority-ranked top-10 queue | airmass-aware ILP allocation |
+
+The compact implementation is designed to make every ranking decision inspectable before adding Kafka, Avro, GPU models, or external sky catalogs.
+
 The full research plan is represented by package boundaries for ingest, light curves, classification, multi-messenger correlation, and scheduling. Production integrations (Kafka, Avro, HEALPix, Bokeh, and PostgreSQL) are deliberately optional next steps, not hard requirements for the first runnable demo.
 
 ## Layout
