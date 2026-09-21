@@ -1,0 +1,6 @@
+services:
+  pipeline:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes: [".:/app"]
+    command: python -m astro_transient_pipeline.pipeline --alerts 100
