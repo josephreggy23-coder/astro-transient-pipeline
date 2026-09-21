@@ -1,0 +1,16 @@
+{
+  "seed": 7,
+  "alert_count": 10000,
+  "classification_counts": {
+    "AGN flare": 1156,
+    "SN II": 6061,
+    "SN Ia": 2500,
+    "kilonova": 283
+  },
+  "top_candidate": {
+    "alert_id": "SIM01767",
+    "priority": 1.2037,
+    "class": "kilonova"
+  },
+  "displayed_queue_size": 10
+}

@@ -1,0 +1,11 @@
+rank,alert_id,class,class_probability,gw_overlap,priority
+1,SIM01767,kilonova,0.72,0.994978,1.2037
+2,SIM05221,kilonova,0.72,0.993342,1.203
+3,SIM01804,kilonova,0.72,0.993126,1.2029
+4,SIM06073,kilonova,0.72,0.992124,1.2025
+5,SIM03563,kilonova,0.72,0.991144,1.202
+6,SIM08417,kilonova,0.72,0.974883,1.1947
+7,SIM03462,kilonova,0.72,0.972605,1.1937
+8,SIM09523,kilonova,0.72,0.970473,1.1927
+9,SIM00417,kilonova,0.72,0.962742,1.1892
+10,SIM06656,kilonova,0.72,0.956886,1.1866
