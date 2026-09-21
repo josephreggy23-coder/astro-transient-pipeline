@@ -27,6 +27,7 @@ python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
 python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7
+python -m astro_transient_pipeline.report --alerts 10000 --seed 7
 pytest
 ```
 
@@ -59,6 +60,26 @@ SIM00097  priority=0.930  SN Ia; GW overlap=0.98
 
 These values come from `python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7`. The demonstration exercises the full MVP sequence: simulated photometry, transparent classification, mock GW-overlap scoring, and follow-up ranking.
 
+## Reproducible benchmark results
+
+The committed benchmark is an actual run of the repository code with `10,000` alerts and seed `7`. It produced `6,061` SN II candidates, `2,500` SN Ia candidates, `1,156` AGN flares, and `283` kilonova candidates. The highest-ranked follow-up target was `SIM01767`, a kilonova candidate with priority `1.2037`.
+
+![Classification distribution for 10,000 simulated alerts](results/demo/classification_distribution.svg)
+
+![Rise-time and color feature landscape](results/demo/feature_landscape.svg)
+
+The full evidence behind the figures is versioned with the project:
+
+- [`alerts.csv`](results/demo/alerts.csv): all 10,000 generated alert rows and model features
+- [`top_candidates.csv`](results/demo/top_candidates.csv): ranked top-10 follow-up queue
+- [`summary.json`](results/demo/summary.json): benchmark configuration and headline metrics
+
+Regenerate every artifact with:
+
+```bash
+python -m astro_transient_pipeline.report --alerts 10000 --seed 7 --output results/demo
+```
+
 ## What is implemented today
 
 | Stage | MVP implementation | Next research integration |
@@ -88,12 +109,14 @@ Kilonova candidates receive an urgency multiplier of `1.5`; all other classes us
 | `classifier.py` | Rule-based taxonomy for kilonovae, SN Ia, SN II, and AGN flares |
 | `scheduler.py` | Multi-messenger priority score and bounded follow-up queue |
 | `pipeline.py` | Alert simulation, orchestration, CLI parsing, and formatted results |
+| `report.py` | CSV/JSON export and dependency-free SVG benchmark charts |
 | `tests/test_pipeline.py` | Determinism, queue length, and descending-priority checks |
 
 ## Validation and reproducibility
 
 ```bash
 python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7
+python -m astro_transient_pipeline.report --alerts 10000 --seed 7
 python -m compileall -q src
 pytest
 ```
