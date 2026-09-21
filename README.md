@@ -32,6 +32,16 @@ These values come from `python -m astro_transient_pipeline.pipeline --alerts 100
 
 The compact implementation is designed to make every ranking decision inspectable before adding Kafka, Avro, GPU models, or external sky catalogs.
 
+## Validation and reproducibility
+
+```bash
+python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7
+python -m compileall -q src
+pytest
+```
+
+`tests/test_pipeline.py` verifies that a seeded 20-alert run produces a deterministic, descending top-10 priority queue. GitHub Actions repeats the test after installing the optional development dependency set.
+
 The full research plan is represented by package boundaries for ingest, light curves, classification, multi-messenger correlation, and scheduling. Production integrations (Kafka, Avro, HEALPix, Bokeh, and PostgreSQL) are deliberately optional next steps, not hard requirements for the first runnable demo.
 
 ## Layout
