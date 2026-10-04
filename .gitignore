@@ -3,3 +3,8 @@ __pycache__/
 .venv/
 *.py[cod]
 data/cache/
+
+*.egg-info/
+build/
+dist/
+.ruff_cache/
