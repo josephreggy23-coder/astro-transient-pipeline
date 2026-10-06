@@ -13,4 +13,5 @@ def arnett_flux(days_since_peak: float, nickel_mass: float = 0.6, diffusion_days
 
 
 def color_index(flux_g: float, flux_r: float) -> float:
+    """Compute a synthetic g-r color index from two flux measurements."""
     return -2.5 * math.log10(max(flux_g, 1e-12) / max(flux_r, 1e-12))
