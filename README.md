@@ -23,6 +23,8 @@ flowchart LR
 ## Quick start
 
 ```bash
+git clone https://github.com/josephreggy23-coder/astro-transient-pipeline.git
+cd astro-transient-pipeline
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
