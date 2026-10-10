@@ -18,3 +18,4 @@ Thumbs.db
 .ruff_cache/
 .idea/
 .vscode/
+.env
