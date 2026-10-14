@@ -30,7 +30,7 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7
 python -m astro_transient_pipeline.report --alerts 10000 --seed 7
-pytest
+python -m pytest
 ```
 
 On Windows PowerShell, activate the environment with `.venv\Scripts\Activate.ps1`.
@@ -120,7 +120,7 @@ Kilonova candidates receive an urgency multiplier of `1.5`; all other classes us
 python -m astro_transient_pipeline.pipeline --alerts 100 --seed 7
 python -m astro_transient_pipeline.report --alerts 10000 --seed 7
 python -m compileall -q src
-pytest
+python -m pytest
 ```
 
 `tests/test_pipeline.py` verifies that a seeded 20-alert run produces a deterministic, descending top-10 priority queue. GitHub Actions repeats the test after installing the optional development dependency set.
