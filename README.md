@@ -113,6 +113,7 @@ Kilonova candidates receive an urgency multiplier of `1.5`; all other classes us
 | `pipeline.py` | Alert simulation, orchestration, CLI parsing, and formatted results |
 | `report.py` | CSV/JSON export and dependency-free SVG benchmark charts |
 | `tests/test_pipeline.py` | Determinism, queue length, and descending-priority checks |
+| `tests/test_report.py` | Reproducible CSV/JSON/SVG report artifact checks |
 
 ## Validation and reproducibility
 
