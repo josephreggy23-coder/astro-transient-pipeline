@@ -9,6 +9,7 @@ from .scheduler import rank_targets
 
 
 def simulate_alerts(count: int, seed: int = 0) -> list[dict]:
+    """Generate ``count`` seeded synthetic alerts with features and a classification."""
     rng = random.Random(seed)
     alerts = []
     for index in range(count):
@@ -32,6 +33,7 @@ def simulate_alerts(count: int, seed: int = 0) -> list[dict]:
 
 
 def run(count: int, seed: int = 0) -> list:
+    """Simulate ``count`` alerts and return the ranked follow-up queue."""
     return rank_targets(simulate_alerts(count, seed))
 
 
