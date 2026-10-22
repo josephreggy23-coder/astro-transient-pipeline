@@ -11,6 +11,11 @@ class FollowUpTarget:
 
 
 def rank_targets(candidates: list[dict], max_targets: int = 10) -> list[FollowUpTarget]:
+    """Rank alerts by ``urgency * (0.7 * class probability + 0.3 * GW overlap)``.
+
+    Kilonova candidates get a 1.5x urgency boost. Returns at most ``max_targets``
+    targets, highest priority first.
+    """
     scored = []
     for item in candidates:
         probability = item["classification"].probability
