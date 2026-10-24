@@ -1,5 +1,7 @@
 # astro-transient-pipeline
 
+[![CI](https://github.com/josephreggy23-coder/astro-transient-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/josephreggy23-coder/astro-transient-pipeline/actions/workflows/ci.yml)
+
 A dependency-light, simulated multi-messenger transient triage pipeline inspired by ZTF/GROWTH workflows. It is intentionally an MVP: it generates alerts, evaluates a physics-shaped light curve, assigns a transparent taxonomy, cross-matches a mock GW localization, and produces a follow-up queue.
 
 ## Why this project exists
