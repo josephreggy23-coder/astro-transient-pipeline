@@ -41,10 +41,20 @@ On Windows PowerShell, activate the environment with `.venv\Scripts\Activate.ps1
 
 ### Command-line options
 
+`astro_transient_pipeline.pipeline` accepts:
+
 | Option | Default | Purpose |
 | --- | ---: | --- |
 | `--alerts` | `100` | Number of simulated alert packets to process |
 | `--seed` | `0` | Seed controlling light-curve parameters and GW overlap |
+
+`astro_transient_pipeline.report` uses benchmark-oriented defaults:
+
+| Option | Default | Purpose |
+| --- | ---: | --- |
+| `--alerts` | `10000` | Number of simulated alert packets to benchmark |
+| `--seed` | `7` | Seed controlling light-curve parameters and GW overlap |
+| `--output` | `results/demo` | Directory for the CSV, JSON, and SVG artifacts |
 
 Example output from the verified run:
 
